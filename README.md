@@ -15,6 +15,10 @@
 >在最新的SDK版本有了新的mas字段辅助校验，这个完全可以忽略，只要把查询串的version_code设置到169之前就可以跳过这个字段了。
 另外aid为必填字段，其他和接口本身无关的字段都可去掉。
 
+
+![截图1](http://yxshare.oss-cn-hangzhou.aliyuncs.com/Screen%20Shot%202018-05-21%20at%2022.04.56.png)
+![截图1](http://yxshare.oss-cn-hangzhou.aliyuncs.com/Screen%20Shot%202018-05-21%20at%2022.05.07.png)
+
 >由于这里涉及到抖音公司的核心利益，就不放具体代码和关键Key值了。有需要深入研究的朋友可以私信我。
 
 
