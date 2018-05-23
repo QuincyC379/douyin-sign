@@ -4,7 +4,6 @@ import (
 	"net/url"
 	"fmt"
 	"sort"
-	"yx.com/common/lib/crypto2"
 	"time"
 	"strconv"
 	"net/http"
@@ -14,6 +13,7 @@ import (
 	"io"
 	"io/ioutil"
 	"math/rand"
+	"crypto/md5"
 )
 
 const HIDDEN_RSTR = "AAAAAAAA"
@@ -144,9 +144,9 @@ func sign(urlObj *url.URL, timeStraps ...int) {
 	}
 	urlParams := strings.Join(values, "")
 
-	paramsMd5 := crypto2.Md5(urlParams)
+	paramsMd5 := md5Hex(urlParams)
 	if timeStrap&1 != 0 {
-		paramsMd5 = crypto2.Md5(paramsMd5)
+		paramsMd5 = md5Hex(paramsMd5)
 	}
 	//fmt.Println(paramsMd5, timeStrap&1, timeStrap)
 
@@ -320,6 +320,12 @@ func httpGet(urlRequest string) {
 			//	......
 		}
 	}
+}
+
+func md5Hex(str string) string {
+	h := md5.New()
+	io.WriteString(h, str)
+	return fmt.Sprintf("%x", h.Sum(nil))
 }
 
 const charsetInt = "0123456789"
